@@ -2,13 +2,11 @@ import java.util.Date;
 
 public class Tarefas {
 
-    //Atributos
     String descricao;
     Date dataDeVencimento;
     Boolean status;
     String categoria;
 
-    //Construtores
 
     public String getDescricao() {
         return descricao;
