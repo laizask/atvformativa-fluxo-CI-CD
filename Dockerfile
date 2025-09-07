@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY *.java .
 
-RUN javac Main.java
+RUN javac Adivinhacao.java
 
-CMD ["sh", "-c", "java Main && tail -f /dev/null"]
+CMD ["java", "Adivinhacao"]
