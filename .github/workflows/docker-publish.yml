@@ -26,4 +26,3 @@ jobs:
           context: .
           push: true
           tags: laizask/atividade-formativa:latest
-
