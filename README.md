@@ -1,6 +1,6 @@
 # atvformativa-fluxo-CI-CD
 
-# Projeto DevOps - Semana 4
+# Projeto DevOps
 
 Este projeto foi desenvolvido para a disciplina de **DevOps**, com o objetivo de praticar:
 
