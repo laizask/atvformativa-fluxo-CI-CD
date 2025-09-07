@@ -6,4 +6,4 @@ COPY *.java .
 
 RUN javac Main.java
 
-CMD ["java", "Main"]
+CMD ["sh", "-c", "java Main && tail -f /dev/null"]
