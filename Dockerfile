@@ -2,8 +2,8 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY src ./src
+COPY *.java .
 
-RUN javac src/*.java -d .
+RUN javac Main.java
 
 CMD ["java", "Main"]
