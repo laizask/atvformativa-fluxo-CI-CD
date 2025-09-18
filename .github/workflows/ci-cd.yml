@@ -1,6 +1,8 @@
 name: Java CI
 
 on:
+  push:
+    branches: [ discord-integration ]
   pull_request:
     branches: [ main ]
 
@@ -23,13 +25,28 @@ jobs:
         with:
           name: meu-app-java
           path: target/*.jar
-
   discord:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      - name: Run Discord Webhook
-        uses: johnnyhuy/actions-discord-git-webhook@main
+      - name: Discord Commits
+        uses: Sniddl/discord-commits@v1.6
         with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          template: "avatar-with-link"
+          include-extras: true  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t meu-app-java .
+        run: |
+          docker build -t meu-app-java .
