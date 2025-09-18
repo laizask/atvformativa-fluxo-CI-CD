@@ -24,3 +24,14 @@ jobs:
     with:
       name: meu-app-java
       path: target/*.jar
+
+
+      discord:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v4
+
+          - name: Run Discord Webhook
+            uses: johnnyhuy/actions-discord-git-webhook@main
+            with:
+              webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
