@@ -25,6 +25,7 @@ jobs:
         with:
           name: meu-app-java
           path: target/*.jar
+
   discord:
     runs-on: ubuntu-latest
     steps:
@@ -35,18 +36,13 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           template: "avatar-with-link"
-          include-extras: true  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+          include-extras: true
+          content: "Atualização no branch discord-integration!"  # evita erro undefined
 
-      - name: Build Docker image  docker:
+  docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
       - name: Build Docker image
-        run: |
-          docker build -t meu-app-java .
-        run: |
-          docker build -t meu-app-java .
+        run: docker build -t meu-app-java .
