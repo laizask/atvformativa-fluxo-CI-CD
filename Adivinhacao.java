@@ -1,31 +1,38 @@
 import java.util.Scanner;
+
 public class Adivinhacao {
     public static void main(String[] args) {
-        System.out.println("Seja bem-vindo ao jogo de Adivinhação! O objetivo é adivinhar o número escolhido pelo computador.");
+        System.out.println("Bem-vindo ao Jogo da Adivinhação!");
+        System.out.println("Tente adivinhar o número secreto escolhido pelo computador. Boa sorte!\n");
 
-    int numeroMaximo = 30;
-    int numeroMinimo = 1;
-    int numeroSecreto = numeroMinimo + (int)(Math.random() * (numeroMaximo - numeroMinimo + 1));
-    int numeroTentativas = 0;
+        int numeroMinimo = 1;
+        int numeroMaximo = 30;
+        int numeroSecreto = numeroMinimo + (int)(Math.random() * (numeroMaximo - numeroMinimo + 1));
+        int numeroTentativas = 0;
 
-    Scanner scanner = new Scanner(System.in);
-    int numeroJogador = 0;
+        Scanner scanner = new Scanner(System.in);
+        int numeroJogador = 0;
 
-    while (numeroJogador != numeroSecreto) {
-    System.out.println("Digite um número de 1 a 30:");
-    numeroJogador = scanner.nextInt();
-    numeroTentativas++;
+        while (numeroJogador != numeroSecreto) {
+            System.out.println("Digite um número de " + numeroMinimo + " a " + numeroMaximo + ":");
+            numeroJogador = scanner.nextInt();
+            numeroTentativas++;
 
-        if (numeroJogador < numeroSecreto) {
-            System.out.println("Tente um número maior!");
+            if (numeroJogador < numeroSecreto) {
+                System.out.println("Tente um número maior!");
+            } else if (numeroJogador > numeroSecreto) {
+                System.out.println("Tente um número menor!");
+            }
+
+            if (numeroTentativas > 5 && numeroJogador != numeroSecreto) {
+                System.out.println("Ainda não acertou? Continue tentando!");
+            }
         }
-        else if(numeroJogador > numeroSecreto){
-            System.out.println("Tente um número menor!");
-        }
+
+        System.out.println("\nParabéns! Você acertou o número " + numeroSecreto +
+                " em " + numeroTentativas + " tentativas!");
+        System.out.println("Obrigado por jogar! Até a próxima!");
+
+        scanner.close();
     }
-    System.out.println("Acertou o número em "+ numeroTentativas + " tentativas!");
-    scanner.close();
-        }
-    }
-
-
+}
