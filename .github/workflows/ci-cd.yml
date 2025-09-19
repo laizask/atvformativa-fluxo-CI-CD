@@ -21,7 +21,7 @@ jobs:
         run: mvn clean install
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: meu-app-java
           path: target/*.jar
@@ -29,15 +29,15 @@ jobs:
   discord:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+    - uses: actions/checkout@v3
 
-      - name: Discord Commits
-        uses: Sniddl/discord-commits@v1.6
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
-          content: "Atualização no branch discord-integration!"  # evita erro undefined
+    - name: Discord Commits
+      uses: Sniddl/discord-commits@v1.6
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        template: "avatar-with-link"
+        include-extras: true
+        content: "Atualização no branch discord-integration!"
 
   docker:
     runs-on: ubuntu-latest
