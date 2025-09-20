@@ -2,9 +2,13 @@ name: CI - Java + Discord + Docker
 
 on:
   push:
-    branches: [discord-integration]
+    branches:
+      - main
+      - jogo
+      - discord-integration
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build-java:
