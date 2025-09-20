@@ -18,12 +18,13 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
-      - run: javac *.java
+          cache: maven
+      - name: Run Maven tests
+        run: mvn --batch-mode --update-snapshots verify
       - uses: actions/upload-artifact@v4
         with:
           name: meu-app-java
-          path: '*.class'
+          path: target/*.jar
 
   discord:
     runs-on: ubuntu-latest
