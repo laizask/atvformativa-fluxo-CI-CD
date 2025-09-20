@@ -1,7 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-public class AdivinhacaoTeste {
+public class AdivinhacaoTest {
 
     @Test
     public void testeTentarMaior() {
