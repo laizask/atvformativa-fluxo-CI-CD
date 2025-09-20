@@ -1,9 +1,10 @@
-FROM eclipse-temurin:17-jdk
+FROM maven:3.9.2-eclipse-temurin-17
 
 WORKDIR /app
 
-COPY *.java .
+COPY pom.xml .
+COPY src ./src
 
-RUN javac Adivinhacao.java
+RUN mvn clean package
 
-CMD ["java", "Adivinhacao"]
+CMD ["java", "-cp", "target/adivinhacao-1.0-SNAPSHOT.jar", "jogoAdivinhacao"]
