@@ -4,6 +4,10 @@ class Adivinhacao {
 
     private int numeroSecreto;
 
+    public void setNumeroSecreto(int numero) {
+        this.numeroSecreto = numero;
+    }
+
     public Adivinhacao(int minimo, int maximo){
         this.numeroSecreto = minimo + (int)(Math.random() * (maximo - minimo + 1));
     }
